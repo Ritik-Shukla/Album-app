@@ -7,7 +7,7 @@
 body{
     width: 100%;
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: #F2F2F2;
 }
 a{
     color: unset;
@@ -23,16 +23,19 @@ button{
     border: none;
     cursor: pointer;
 }
+
+
+/* Navbar component style */
 .navbar{
     width: 100%;
     padding: 20px 10px;
-    background-color: #FF1D58;
+    background-color: #000000;
     display: flex;
     justify-content: space-between;
     position: fixed;
 }
 .navbar h2{
-    color: #FFF685;
+    background-color: #FD0102;
     width: fit-content;
     padding: 2px;
 }
@@ -45,12 +48,18 @@ button{
 
 }
 .navbar button{
-    background-color:transparent;
-    color:#FFF685;
-    font-size: 20px;
+    background-color: transparent;
+    color: #FD0102;
+    border: 2px solid #FD0102;
     padding: 5px 10px;
     cursor: pointer;
 }
+.navbar button:hover{
+    background-color: #FD0102;
+    color: white;
+}
+
+/* AlbumsList component style */
 .albums-list{
     width: 70%;
     margin: auto;
@@ -59,13 +68,14 @@ button{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+/* List component style */
 .list{
     width: 310px;
     height: 200px;
-    background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-color: #478AC9;
     margin-bottom:5px ;
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -81,17 +91,15 @@ button{
     justify-content: space-between;
 }
 .update-btn{
-    background-color: rgb(27, 210, 247);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 254, 254);
+    background-color: black;
+    color: white;
+    border: 0px;
     padding: 10px 20px;
     cursor: pointer;
-    border-radius: 5px;
 }
 .update-btn:hover{
     background-color: white;
-    color:rgb(27, 210, 247);
-    border: 2px solid rgb(27, 210, 247);
+    color: black;
 }
 .delete-btn{
     cursor: pointer;
@@ -99,14 +107,13 @@ button{
     padding: 10px 20px;
     background-color: red;
     color: white;
-    border-radius: 5px;
 }
 .delete-btn:hover{
     color:red;
-    border: 2px solid red;
     background-color:white;
 }
 
+/* UpdateAlbum component style */
 .update-album{
     width: 350px;
     margin: auto;
@@ -126,6 +133,8 @@ button{
     padding: 10px 20px;
     color: white;
 }
+
+/* addAlbum container style */
 .addalbum-container{
     color: white;
     padding-top: 73px;
@@ -134,21 +143,11 @@ button{
 }
 .addalbum-form{
     padding: 10px;
-    background-color: #ffffff;
+    background-color: #478AC9;
     margin-top: 50px;
-    color: #000000;
-    border: 2px solid black;
 }
 .addalbum-form button{
-    border: 2px solid rgb(43, 128, 255);;
+    background-color: green;
     padding: 10px 20px;
-    color: rgb(43, 128, 255);
-    border-radius: 5px;
-}
-.addalbum-form button:hover{
-    border: 2px solid rgb(43, 128, 255);;
-    padding: 10px 20px;
-    color: rgb(255, 255, 255);
-    background-color: rgb(43, 128, 255);
-    border-radius: 5px;
+    color: white;
 }

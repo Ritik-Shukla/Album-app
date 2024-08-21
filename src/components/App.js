@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Routes, Route } from "react-router-dom";
 import AddAlbum from './AddAlbum';
 import AlbumsList from './AlbumsList';
+// import Navbar from './Navbar'
 import UpdateAlbum from './UpdateAlbum';
 
 export default class App extends Component {
@@ -13,6 +14,7 @@ export default class App extends Component {
     }
   }
 
+  // this function call first time when app render
   componentDidMount = async () => {
     const albums = await fetch('https://jsonplaceholder.typicode.com/albums')
       .then((response) => response.json())
@@ -22,7 +24,18 @@ export default class App extends Component {
     })
   }
 
+  // setLastId=()=>{
+  //   const length=this.state.albums.length;
+  //   const lastId=this.state.albums[length-1].id;
+  //   this.setState({
+  //     lastId:lastId
+  //   })
+  //   console.log(this.state.lastId);
+  // }
 
+
+  //delete album function-----------------------------------------------------------------------------------
+  //this function take album id from albums list and then delete the album from albums list and update state
   deleteAlbumFromList = (id) => {
     fetch(`https://jsonplaceholder.typicode.com/albums/${id}`, { method: 'DELETE', })
     const newAlbums = this.state.albums.filter((album) => album.id !== id);
@@ -31,13 +44,17 @@ export default class App extends Component {
       albums: newAlbums,
     })
   }
+  //---------------------------------------------------------------------------------------------------------
 
+
+  //update album functions------------------------------------------------------------------------------------
+  //this function take album object from albums list and set state for update album
   setUpdateAlbum = async (album) => {
     this.setState({
       updateAlbum: album
     })
   }
-
+  //this function take album id, updateTitle, updateUserid, oldAlbum and then update and set state 
   updateAlbumInList = async (id, updateTitle, updateUserid, oldAlbum) => {
     const albums = this.state.albums;
     const index = albums.indexOf(oldAlbum);
@@ -67,7 +84,10 @@ export default class App extends Component {
     })
     alert("Update Successfully done")
   }
+  //--------------------------------------------------------------------------------------------------------
 
+  //add album function--------------------------------------------------------------------------------------
+  //this function take userid and title from input and then added to the bottom of the albums list
   addAlbumToList = (userId, title) => {
     fetch('https://jsonplaceholder.typicode.com/albums', {
       method: 'POST',
@@ -92,6 +112,8 @@ export default class App extends Component {
     })
     alert("New Album added successfully in the bottom");
   }
+  //--------------------------------------------------------------------------------------------------------
+
 
   render() {
     return (
